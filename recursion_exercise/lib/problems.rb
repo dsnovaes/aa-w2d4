@@ -137,7 +137,17 @@ end
 #     1-dimensional array: ['some data']
 #     2-dimensional array: [['some data']]
 #     3-dimensional array: [[['some data']]]
+
+
 def flatten(data)
     
+    # base case
+    return [data] if !data.instance_of?(Array)
+
+    # recursive step
+    result = []
+    data.each { |el| result += flatten(el) } 
+    result
+
 
 end
