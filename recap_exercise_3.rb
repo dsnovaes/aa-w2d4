@@ -148,28 +148,79 @@ end
 # p "HELLOworld".select          # => ""
 
 # Examples
-word_1 = "Lovelace"
-word_1.map! do |ch| 
-    if ch == 'e'
-        '3'
-    elsif ch == 'a'
-        '4'
-    else
-        ch
-    end
-end
-p word_1        # => "Lov3l4c3"
+# word_1 = "Lovelace"
+# word_1.map! do |ch| 
+#     if ch == 'e'
+#         '3'
+#     elsif ch == 'a'
+#         '4'
+#     else
+#         ch
+#     end
+# end
+# p word_1        # => "Lov3l4c3"
 
-word_2 = "Dijkstra"
-word_2.map! do |ch, i|
-    if i.even?
-        ch.upcase
-    else
-        ch.downcase
-    end
-end
-p word_2        # => "DiJkStRa"
+# word_2 = "Dijkstra"
+# word_2.map! do |ch, i|
+#     if i.even?
+#         ch.upcase
+#     else
+#         ch.downcase
+#     end
+# end
+# p word_2        # => "DiJkStRa"
 
 
 # Recursion Hell
 
+def multiply(a,b)
+    # base case
+    return 0 if b == 0
+
+    # recursive step
+    a + multiply(a,b-1)
+end
+
+# p multiply(3,5)
+
+
+
+def lucas_sequence(n)
+
+    # base case - returns a number, just as the function should return
+    return [] if n == 0
+    return [2] if n == 1
+    return [2,1] if n == 2
+
+
+    # recursive step
+    seq = lucas_sequence(n - 1)
+    seq << seq[-1] + seq[-2]
+    seq
+
+
+end
+
+# p lucas_sequence(0)   # => []
+# p lucas_sequence(1)   # => [2]    
+# p lucas_sequence(2)   # => [2, 1]
+# p lucas_sequence(3)   # => [2, 1, 3]
+# p lucas_sequence(6)   # => [2, 1, 3, 4, 7, 11]
+# p lucas_sequence(8)   # => [2, 1, 3, 4, 7, 11, 18, 29]
+
+
+def prime_factorization(num)
+
+
+    arr = 
+
+end
+
+# Examples
+prime_factorization(12)     # => [2, 2, 3]
+prime_factorization(24)     # => [2, 2, 2, 3]
+prime_factorization(25)     # => [5, 5]
+prime_factorization(60)     # => [2, 2, 3, 5]
+prime_factorization(7)      # => [7]
+prime_factorization(11)     # => [11]
+prime_factorization(2017)   # => [2017]
